@@ -11,8 +11,31 @@ return [
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
-    'modules' => [],
+    'modules' => [
+        'profilemanager' => [
+            'class' => 'backend\modules\profilemanager\Module'
+        ],
+        'api' => [
+            'class' => 'app\modules\api\Module',
+        ],
+    ],
     'components' => [
+        'i18n' => [
+            'translations' => [
+                'yii2-ajaxcrud' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@yii2ajaxcrud/ajaxcrud/messages',
+                    'sourceLanguage' => 'id',
+                ],
+            ]
+        ],
+        'view' => [
+            'theme' => [
+                'pathMap' => [
+                    '@app/views' => '@vendor/hail812/yii2-adminlte3/src/views'
+                ],
+            ],
+        ],
         'request' => [
             'csrfParam' => '_csrf-backend',
             'baseUrl' => '/admin'
@@ -42,7 +65,7 @@ return [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'baseUrl' => '/admin'
+            'baseUrl' => '/admin',
             'rules' => [
             ],
         ],

@@ -12,4 +12,7 @@ RewriteEngine On
 RewriteRule ^admin(/.+)?$ backend/web/$1 [L,PT]
 RewriteRule ^admin/(.+)?$ backend/web/$1 [L,PT]
 
+RewriteRule ^api(/.+)?$ api/web/$1 [L,PT]
+RewriteRule ^api/(.+)?$ api/web/$1 [L,PT]
+
 RewriteRule ^(.+)?$ frontend/web/$1
